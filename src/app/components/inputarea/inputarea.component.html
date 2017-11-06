@@ -1,0 +1,25 @@
+<p>
+  inputarea here ========>
+</p>
+{{error}}
+<form *ngIf="!error">
+  <thead>
+      <th>Index</th> 
+      <th>Name</th> 
+      <th>Value</th> 
+  </thead>
+  <tbody *ngFor="let feature of data; let i = index" >
+      <tr *ngIf="i < classIndex">
+            <td>{{feature.index}}</td>
+            <td>{{feature.name}}</td>
+            <td [ngSwitch]="feature.type" >
+                <select *ngSwitchCase="'Nominal'" class="feature" id={{feature.index}}>
+                  <option *ngFor="let o of feature.options" name="options">{{o}}</option>  
+                </select>  
+                <input class="feature" id={{feature.index}} *ngSwitchDefault type="text" placeholder="--type: {{feature.type}} --"/>
+            </td>
+   
+        </tr>
+  </tbody>
+  <input type="submit" value="Submit" />
+</form>
