@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Welcome to weka-api web!';
   architecture = {
+    // _here_to_add_
     'backend': ['Java Spring boot','Weka'], 
     'frontend':['Angular 4', 'TypeScript']
   }

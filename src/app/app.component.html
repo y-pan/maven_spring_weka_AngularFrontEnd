@@ -1,26 +1,36 @@
 <app-navbar></app-navbar>
 
 
-<h1> {{title}}</h1> 
-<hr>
-  <h3>Architecture:</h3>
-  <p><Strong>Backend:</Strong></p>
-  <ul>
-    <li *ngFor="let b of architecture.backend">
-      {{b}}
-    </li>
-  </ul>
-  <p><Strong>Frontend:</Strong></p>
-  <ul>
-    <li *ngFor="let f of architecture.frontend">
-      {{f}}
-    </li>
-  </ul>
+<h1>{{title}}</h1> 
+
 <hr>
 <app-inputarea></app-inputarea>
 <hr>
 
 <app-outputarea></app-outputarea>
 <hr>
+
+<h3>Techniques used:</h3>
+
+<div class="container container-list">
+  <div class="row">
+    <div class="col">
+        <ul class="list-group">
+            <li class="list-group-item active">Backend</li>
+            <li *ngFor="let t of architecture.backend" class="list-group-item">{{t}}</li>
+        </ul>
+    </div>
+    <div class="col">
+        <ul class="list-group">
+            <li class="list-group-item active">Frontend</li>
+            <li *ngFor="let t of architecture.frontend" class="list-group-item">{{t}}</li>
+        </ul>
+      </div>
+  </div>
+</div>
+
+
+
+
 
 <app-footer></app-footer>

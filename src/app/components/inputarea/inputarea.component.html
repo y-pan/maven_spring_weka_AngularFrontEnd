@@ -1,25 +1,56 @@
-<p>
-  inputarea here ========>
-</p>
-{{error}}
-<form *ngIf="!error">
-  <thead>
-      <th>Index</th> 
-      <th>Name</th> 
-      <th>Value</th> 
-  </thead>
-  <tbody *ngFor="let feature of data; let i = index" >
-      <tr *ngIf="i < classIndex">
-            <td>{{feature.index}}</td>
+ {{error}}
+<div class="container">
+  <form *ngIf="!error" (ngSubmit)="onSubmit(inputForm.value)" #inputForm="ngForm">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <th>Index</th>
+          <th>Name</th>
+          <th>Value</th>
+        </thead>
+        <tbody *ngFor="let feature of data; let i = index">
+          <tr *ngIf="i < classIndex">
+            <td>{{feature.index + 1}}</td>
             <td>{{feature.name}}</td>
-            <td [ngSwitch]="feature.type" >
-                <select *ngSwitchCase="'Nominal'" class="feature" id={{feature.index}}>
-                  <option *ngFor="let o of feature.options" name="options">{{o}}</option>  
-                </select>  
-                <input class="feature" id={{feature.index}} *ngSwitchDefault type="text" placeholder="--type: {{feature.type}} --"/>
+            <td [ngSwitch]="feature.type">
+              <select ngModel name="feature_{{feature.index}}" class="feature" id="feature_{{feature.index}}" *ngSwitchCase="'Nominal'">
+                <option *ngFor="let o of feature.options" name="options">{{o}}</option>
+              </select>
+              <input ngModel name="feature_{{feature.index}}" class="feature" id="feature_{{feature.index}}" *ngSwitchDefault type="text"
+                placeholder="{{feature.type}}" />
             </td>
-   
+
+          </tr>
+        </tbody>
+        <input type="submit" value="Send" class="btn btn-primary" />
+        <input type="reset" value="Reset" class="btn btn-danger" />
+
+      </table>
+    </div>
+  </form>
+
+  <!--==================== output prediction below ========================-->
+  <div class="container">
+
+    <span *ngIf="predictionReady && prediction.error">{{prediction.error}}</span>
+
+    <table class="table table-dark" *ngIf="predictionReady && !prediction.error">
+      <thead>
+        <tr>
+          <th scope="col">Predicted Value</th>
+          <th scope="col">Predicted Result</th>
+          <th scope="col">Confidence</th>
         </tr>
-  </tbody>
-  <input type="submit" value="Submit" />
-</form>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{prediction.data.predictionValue}}</td>
+          <td>{{prediction.data.predictionName}}</td>
+          <td>{{prediction.data.predictionConfidence}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
