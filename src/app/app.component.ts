@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Welcome to weka-api web!';
+  title = 'Welcome to weka-api web';
   description = "It's an ongoing personal project. Main idea is to build a web (front+back) to provide user-friendly weka prediction models. See how far I can go. So much fun!!!";
   architecture = {
     // _here_to_add_
