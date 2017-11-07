@@ -24,7 +24,7 @@ export class InputareaComponent implements OnInit {
   constructor(private dataService:DataService ) { }
 
   ngOnInit() {
-    this.modelName = "iris";
+    this.modelName = "credit-g-opt";  //credit-g-opt, iris
     this.dataService.getInputForm(this.modelName).subscribe((formInfo) => {
       if(formInfo.error){
         this.error = formInfo.error;
@@ -43,11 +43,30 @@ export class InputareaComponent implements OnInit {
   
   onSubmit(formInput:any){
 
-    let data:string[] = this.getSubmitData(formInput);
+    let _rawData:string[] = this.getSubmitData(formInput);
+    console.log("raw data from page:");
+    console.log(_rawData);
+    
+    let data:string[]=[];
+    for(let i = 0; i<_rawData.length; i++){
+      if(this.data[i].options && this.data[i].options.length > 0 ){ // has option there, we need index of the option for the value text
+        data.push(this.data[i].options.indexOf(_rawData[i]).toString());
+      }else{
+        data.push(_rawData[i]);
+      }
+    }
+
+    console.log("processed data for model:");
+    console.log(data);
+
     let body:any = {
         "modelType" : "J48",
         "data":data
       }
+    
+      console.log("WATCH DATA...")
+      
+      console.log(data)
     this.dataService.postPredictRequest(this.modelName, body).subscribe((data)=>{
       this.prediction = data;
       this.predictionReady = true;
@@ -63,8 +82,9 @@ export class InputareaComponent implements OnInit {
     })
   }
 
-  private getSubmitData(formInput:any):any{
-    let result:any = [];
+  
+  private getSubmitData(formInput:any):string[]{
+    let result:string[] = [];
     for(let key in formInput){
       if(formInput.hasOwnProperty(key)){
         if(formInput[key]){
@@ -82,7 +102,7 @@ export class InputareaComponent implements OnInit {
 interface inputFormDataInfo{
   'index':number,
   'name':string,
-  'type':string,
+  'type':string,       // string, numeric, date, nominal
   'options':string[]
 }
 interface prodictionResult{
