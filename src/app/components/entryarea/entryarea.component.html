@@ -1,0 +1,8 @@
+<div class="container">
+  Start here to select a model:
+  <select class="custom-select" (change)="onSelectModelChange($event.target.value)">
+      <option selected >--select--</option>
+      <option *ngFor="let m of modelArray; let i=index" value="{{i}}" >{{m}}</option>
+    </select>
+
+</div>

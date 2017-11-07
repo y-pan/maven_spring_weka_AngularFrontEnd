@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { OutputareaComponent } from './outputarea.component';
+import { EntryareaComponent } from './entryarea.component';
 
-describe('OutputareaComponent', () => {
-  let component: OutputareaComponent;
-  let fixture: ComponentFixture<OutputareaComponent>;
+describe('EntryareaComponent', () => {
+  let component: EntryareaComponent;
+  let fixture: ComponentFixture<EntryareaComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OutputareaComponent ]
+      declarations: [ EntryareaComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OutputareaComponent);
+    fixture = TestBed.createComponent(EntryareaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

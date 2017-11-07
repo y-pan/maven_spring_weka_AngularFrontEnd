@@ -6,18 +6,20 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { InputareaComponent } from './components/inputarea/inputarea.component';
-import { OutputareaComponent } from './components/outputarea/outputarea.component';
 import { FooterComponent } from './components/footer/footer.component';
 
-import { DataService } from './services/data.service'
+import { DataService } from './services/data.service';
+import { EntryareaComponent } from './components/entryarea/entryarea.component'
+import { ConfigService } from './services/config.service';
+import { MessageService } from './services/message.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     InputareaComponent,
-    OutputareaComponent,
     FooterComponent,
+    EntryareaComponent,
 
   ],
   imports: [
@@ -25,7 +27,7 @@ import { DataService } from './services/data.service'
     FormsModule,
     HttpModule
   ],
-  providers: [DataService],
+  providers: [DataService, ConfigService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

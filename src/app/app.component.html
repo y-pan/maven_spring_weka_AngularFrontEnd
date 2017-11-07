@@ -1,15 +1,16 @@
 <app-navbar></app-navbar>
 
-
 <h1>{{title}}</h1> 
 
-<hr>
-<app-inputarea></app-inputarea>
-<hr>
 
-<app-outputarea></app-outputarea>
 <hr>
+<app-entryarea></app-entryarea> <!--here displays available models, select a model to show inputarea -->
 
+<hr>
+<app-inputarea></app-inputarea> <!--here displays input form, type in as required and submit to get prediction -->
+
+
+<hr>
 <h3>Techniques used:</h3>
 
 <div class="container container-list">
@@ -28,9 +29,5 @@
       </div>
   </div>
 </div>
-
-
-
-
 
 <app-footer></app-footer>
