@@ -1,33 +1,41 @@
 <app-navbar></app-navbar>
 
-<h1>{{title}}</h1> 
-
-
-<hr>
-<app-entryarea></app-entryarea> <!--here displays available models, select a model to show inputarea -->
+<h1>{{title}}</h1>
+<p>{{description}}</p>
 
 <hr>
-<app-inputarea></app-inputarea> <!--here displays input form, type in as required and submit to get prediction -->
+<app-entryarea></app-entryarea>
+<!--here displays available models, select a model to show inputarea -->
+
+<hr>
+<app-inputarea></app-inputarea>
+<!--here displays input form, type in as required and submit to get prediction -->
 
 
 <hr>
 <h3>Techniques used:</h3>
 
 <div class="container container-list">
-  <div class="row">
-    <div class="col">
-        <ul class="list-group">
-            <li class="list-group-item active">Backend</li>
-            <li *ngFor="let t of architecture.backend" class="list-group-item">{{t}}</li>
-        </ul>
+    <div class="row">
+        <div class="col">
+            <ul class="list-group">
+                <li class="list-group-item active">Backend</li>
+                <li *ngFor="let t of architecture.backend" class="list-group-item">{{t}}</li>
+            </ul>
+        </div>
+        <div class="col">
+            <ul class="list-group">
+                <li class="list-group-item active">Frontend</li>
+                <li *ngFor="let t of architecture.frontend" class="list-group-item">{{t}}</li>
+            </ul>
+        </div>
+        <div class="col">
+            <ul class="list-group">
+                <li class="list-group-item active">Deployment Supports</li>
+                <li *ngFor="let t of architecture.deployment" class="list-group-item">{{t}}</li>
+            </ul>
+        </div>
     </div>
-    <div class="col">
-        <ul class="list-group">
-            <li class="list-group-item active">Frontend</li>
-            <li *ngFor="let t of architecture.frontend" class="list-group-item">{{t}}</li>
-        </ul>
-      </div>
-  </div>
 </div>
 
 <app-footer></app-footer>
