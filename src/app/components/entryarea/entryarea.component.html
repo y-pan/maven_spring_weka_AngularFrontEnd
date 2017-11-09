@@ -1,8 +1,9 @@
 <div class="container">
-  Start here to select a model:
+  <h2>Start from here (select model):</h2>
+  
   <select class="custom-select" (change)="onSelectModelChange($event.target.value)">
       <option selected >--select--</option>
       <option *ngFor="let m of modelArray; let i=index" value="{{i}}" >{{m}}</option>
     </select>
-
+  <strong *ngIf="!modelArray"> Loading models... Heroku FREE server(my backend) needs 10s to warm up, then dropdown menu will get populated. Keep trying again.</strong>
 </div>
