@@ -14,14 +14,18 @@ export class EntryareaComponent implements OnInit {
   @Output() onFilter:EventEmitter<any> = new EventEmitter();
 
   modelArray:string[];
+  dataReady:boolean;
   constructor(private dataService:DataService, 
     private configService:ConfigService, 
     private messageService:MessageService ) { }
 
   ngOnInit() {
+  this.dataReady = false;
    this.modelArray = [];
     this.dataService.getAllModel().subscribe(data => {
+      this.dataReady = true;
       for(let i=0; i<data.length; i++ ){
+
         this.modelArray.push(data[i]);
       }      
     });
