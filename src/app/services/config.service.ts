@@ -17,7 +17,7 @@ export class ConfigService {
     switch(this.serverOption){
       case SERVER_OPTIOIN.LOCAL: return "http://localhost:"+this.localServerPort+"";
       case SERVER_OPTIOIN.HEROKU: return "https://maven-spring-weka.herokuapp.com";
-      case SERVER_OPTIOIN.APIGEE: return "http://panyunkui2-eval-test.apigee.net/webweka";
+      case SERVER_OPTIOIN.APIGEE: return "https://panyunkui2-eval-test.apigee.net/webweka";//"http://panyunkui2-eval-test.apigee.net/webweka";
       default :return "https://maven-spring-weka.herokuapp.com";
     }
   }
