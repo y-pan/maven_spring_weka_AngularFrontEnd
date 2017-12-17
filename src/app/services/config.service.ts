@@ -29,7 +29,7 @@ export class ConfigService {
   }
 
   getApiKey():string{
-    return "C7vuDez16RaQIEcEL7pvGGAqa1GN9ZCy"; // ?apikey=key
+    return "C7vuDez16RaQIEcEL7pvGGAqa1GN9ZCx"; // ?apikey=key
   }
   getApiUrl():string{
     return this.getServerRootUrl()+ "/api/predict/";
