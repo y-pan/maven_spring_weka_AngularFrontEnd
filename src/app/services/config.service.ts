@@ -29,8 +29,8 @@ export class ConfigService {
   }
 
   getApiKey():string{
-    return process.env.apigee_apikey; // set in heroku env var
-    //return "C7vuDez16RaQIEcEL7pvGGAqa1GN9ZCx"; // ?apikey=key
+    //return process.env.apigee_apikey; // set in heroku env var, doesn't work yet.
+    return "C7vuDez16RaQIEcEL7pvGGAqa1GN9ZCx"; // ?apikey=key
   }
   getApiUrl():string{
     return this.getServerRootUrl()+ "/api/predict/";
