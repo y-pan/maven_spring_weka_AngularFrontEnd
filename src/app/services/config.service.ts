@@ -29,7 +29,7 @@ export class ConfigService {
   }
 
   getApiKey():string{
-    return "abc"
+    return process.env.apigee_apikey; // set in heroku env var
     //return "C7vuDez16RaQIEcEL7pvGGAqa1GN9ZCx"; // ?apikey=key
   }
   getApiUrl():string{
