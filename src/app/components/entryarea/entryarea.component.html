@@ -5,5 +5,5 @@
       <option selected >--select--</option>
       <option *ngFor="let m of modelArray; let i=index" value="{{i}}" >{{m}}</option>
     </select>
-  <strong *ngIf="!dataReady"> Loading models... Heroku FREE server(my backend) needs 10s to warm up, then dropdown menu will get populated. Keep trying again.</strong>
+  <strong *ngIf="!dataReady"> Loading models... Heroku FREE server(my backend) needs a minute to warm up, then dropdown menu will get populated. Keep trying again.</strong>
 </div>
